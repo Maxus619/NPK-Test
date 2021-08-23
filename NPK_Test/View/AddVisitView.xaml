@@ -1,0 +1,46 @@
+﻿<Page x:Class="NPK_Test.View.AddVisitView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NPK_Test.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="590"
+      Title="AddVisitView">
+
+    <Grid>
+        <StackPanel Margin="155, 30">
+            <Label Content="Добавить посещение"
+                   FontSize="24"
+                   HorizontalAlignment="Center"/>
+
+            <Separator></Separator>
+
+            <Label Content="Пациент"
+                   FontSize="16"/>
+            <ComboBox ItemsSource="{Binding LstPatients}"
+                  DisplayMemberPath="FullName"
+                  SelectedValuePath="PatientID"
+                  SelectedValue="{Binding SelectedPatient}"/>
+            
+            <Label Content="Дата посещения (формат xx.xx.xxxx)"
+                   FontSize="16"/>
+            <TextBox Name="tbBirthday"
+                     FontSize="16"
+                     Text="{Binding DateVisit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Label Content="Диагноз (МКБ 10)"
+                   FontSize="16"/>
+            <TextBox Name="tbLastName"
+                     FontSize="16"
+                     Text="{Binding Diagnose, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <Button Name="btnSubmit"
+                    Command="{Binding Submit}"
+                    Content="Добавить"
+                    FontSize="16"
+                    Margin="50, 30"
+                    Height="40"/>
+        </StackPanel>
+    </Grid>
+</Page>
